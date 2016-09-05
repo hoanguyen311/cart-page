@@ -1,1 +1,2 @@
-*npm install && npm start dev*
+npm install && npm start dev
+Demo: https://hoanguyen311.github.io/cart-page/
