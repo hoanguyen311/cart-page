@@ -34,3 +34,17 @@ export function build() {
         })
     );
 }
+
+export function buildDemo() {
+    return start(
+        files(['dist']),
+        clean(),
+        env('production', () => {
+            const cfg = require(root + '/webpack/demo').default;
+
+            return start(
+                webpack.build(cfg)
+            );
+        })
+    );
+}
