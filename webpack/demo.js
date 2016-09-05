@@ -16,7 +16,7 @@ export default {
     plugins: [
         ...webpackCommonConfig.plugins,
         new webpack.optimize.CommonsChunkPlugin('vendor', '[name].js'),
-        new ExtractTextPlugin(`styles.css`, {
+        new ExtractTextPlugin('styles.css', {
             allChunks: true
         }),
         new webpack.optimize.DedupePlugin(),

@@ -70,7 +70,7 @@ export default {
     plugins: [
         ...webpackCommonConfig.plugins,
         new webpack.optimize.CommonsChunkPlugin('vendor', 'scripts/2014/cart/[name].js'),
-        new ExtractTextPlugin(`css/new-cart-bundle.css`, {
+        new ExtractTextPlugin('css/new-cart-bundle.css', {
             allChunks: true
         }),
         new webpack.optimize.DedupePlugin(),
