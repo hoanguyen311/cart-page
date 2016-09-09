@@ -9,6 +9,7 @@ export default {
         colors: true,
         reasons: false
     },
+    entry: [ 'babel-polyfill' ],
     output: {
         pathinfo: true
     },

@@ -20,14 +20,8 @@ export function receiveData(payload) {
     };
 }
 
-export function loadData() {
-    return dispatch => {
-        dispatch(showLoading());
-
-        return api.loadData()
-            .then(({ success, data }) => {
-                dispatch(receiveData(data));
-                dispatch(hideLoading());
-            });
+export function requestData() {
+    return {
+        type: actionTypes.REQUEST_DATA
     };
-}
+};

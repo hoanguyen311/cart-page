@@ -50,6 +50,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.13.0",
     "format-number": "^2.0.1",
     "react": "^15.3.0",
     "react-addons-css-transition-group": "^15.3.1",
@@ -57,6 +58,7 @@
     "react-redux": "^4.4.5",
     "rebem": "^0.9.3",
     "redux": "^3.5.2",
+    "redux-saga": "^0.11.1",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.3",
     "superagent": "^2.2.0"

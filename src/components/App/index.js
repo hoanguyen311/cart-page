@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from './component';
-import { loadData } from '~/actions/app';
+import { requestData } from '~/actions/app';
 import { showWishlist } from '~/actions/wishlist';
 
 function mapStateToProps(state) {
@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         loadData() {
-            dispatch(loadData());
+            dispatch(requestData());
         },
         handleShowWishlist() {
             dispatch(showWishlist());
