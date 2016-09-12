@@ -9,6 +9,7 @@ export default function(port = DEFAULT_PORT) {
     return {
         ...webpackCommonConfig,
         entry: [
+            ...webpackCommonConfig.entry,
             'webpack/hot/only-dev-server',
             `webpack-dev-server/client?http://localhost:${port}`,
             './src/index'

@@ -21,6 +21,16 @@ class App extends Component {
         super(...props);
         this.handleShowWishlist = this.handleShowWishlist.bind(this);
     }
+    static displayName = 'App'
+    static propTypes = {
+        loading: PropTypes.bool.isRequired,
+        showWishlist: PropTypes.bool.isRequired,
+        handleShowWishlist: PropTypes.func.isRequired
+    }
+    static defaultProps = {
+        loading: false,
+        showWishlist: false
+    }
     componentDidMount() {
         this.props.loadData();
     }
@@ -70,14 +80,4 @@ class App extends Component {
         );
     }
 }
-App.displayName = 'App';
-App.propTypes = {
-    loading: PropTypes.bool.isRequired,
-    showWishlist: PropTypes.bool.isRequired,
-    handleShowWishlist: PropTypes.func.isRequired
-};
-App.defaultProps = {
-    loading: false,
-    showWishlist: false
-};
 export default App;

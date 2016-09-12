@@ -30,7 +30,7 @@ export default {
             'rebem',
             'superagent'
         ],
-        app: './src/index'
+        app: [ ...webpackCommonConfig.entry, './src/index' ]
     },
     module: {
         ...webpackCommonConfig.module,
