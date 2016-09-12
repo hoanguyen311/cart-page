@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
-import Modal from '~/components/Modal';
+import Modal from '#Modal';
 import { hideWishlist } from '~/actions/wishlist';
-// function mapStateToProps(state) {
-//     return {
-//         items: getWishlistProducts(state.products)
-//     };
-// }
 
 function mapDispatchToProps(dispatch) {
     return {
