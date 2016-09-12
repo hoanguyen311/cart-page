@@ -1,8 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { blockFactory } from 'rebem';
 
-import './styles.less';
-
 const Block = blockFactory('product-quantity-select');
 
 class QuantitySelect extends Component {

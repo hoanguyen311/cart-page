@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { blockFactory } from 'rebem';
-import './styles.less';
 
 const ButtonBlock = blockFactory('l-button');
 

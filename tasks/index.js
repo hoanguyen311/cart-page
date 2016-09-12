@@ -14,7 +14,6 @@ export function dev() {
     return start(
         env('development', () => {
             const cfg = require(root + '/webpack/development').default(DEV_PORT);
-
             return start(
                 webpack.dev(cfg, DEV_PORT)
             );

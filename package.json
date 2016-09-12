@@ -39,6 +39,7 @@
     "postcss-loader": "^0.10.1",
     "progress-bar-webpack-plugin": "^1.9.0",
     "react-hot-loader": "^1.3.0",
+    "rebem-layers-loader": "^0.5.3",
     "start": "^4.0.1",
     "start-babel-cli": "^1.0.0",
     "start-clean": "^1.0.2",

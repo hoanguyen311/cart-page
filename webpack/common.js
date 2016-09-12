@@ -20,36 +20,32 @@ export default {
     },
     module: {
         preLoaders: [
-            // {
-            //     test: /\.js$/,
-            //     loader: 'rebem-layers',
-            //     query: {
-            //         layers: [
-            //             require('rebem-core-components'),
-            //             require('rebem-theme-reset'),
-            //             require('bob-manager-components'),
-            //             require('bob-manager-theme'),
-            //             {
-            //                 path: path.resolve('src/components/'),
-            //                 files: {
-            //                     main: 'index.js',
-            //                     styles: 'styles.less'
-            //                 }
-            //             },
-            //             {
-            //                 path: path.resolve('src/containers/'),
-            //                 files: {
-            //                     main: 'index.js'
-            //                 },
-            //                 importFactory: false
-            //             }
-            //         ],
-            //         importFactory: true,
-            //         consumers: [
-            //             path.resolve('src/')
-            //         ]
-            //     }
-            // },
+            {
+                test: /\.js$/,
+                loader: 'rebem-layers',
+                query: {
+                    layers: [
+                        {
+                            path: path.resolve('src/components/'),
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        },
+                        {
+                            path: path.resolve('src/containers/'),
+                            files: {
+                                main: 'index.js'
+                            },
+                            importFactory: false
+                        }
+                    ],
+                    importFactory: true,
+                    consumers: [
+                        path.resolve('src/')
+                    ]
+                }
+            },
             // {
             //     test: /\.js$/,
             //     exclude: [
