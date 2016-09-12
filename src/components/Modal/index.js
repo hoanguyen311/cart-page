@@ -1,9 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { blockFactory } from 'rebem';
-import './styles.less';
 
 const Block = blockFactory('l-modal');
-
 
 class Modal extends Component {
     constructor(props) {
@@ -55,5 +53,5 @@ Modal.propTypes = {
     closeOnClickOverlay: PropTypes.bool,
     handleClickClose: PropTypes.func.isRequired
 };
-
+export const animationOptions = Modal.animationOptions;
 export default Modal;

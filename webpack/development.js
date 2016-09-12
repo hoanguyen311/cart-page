@@ -23,8 +23,8 @@ export default function(port = DEFAULT_PORT) {
         devtool: 'cheap-inline-module-source-map',
         module: {
             ...webpackCommonConfig.module,
-            loaders: [
-                ...webpackCommonConfig.module.loaders,
+            preLoaders: [
+                ...webpackCommonConfig.module.preLoaders,
                 {
                     test: /\.js$/,
                     exclude: [
@@ -34,7 +34,10 @@ export default function(port = DEFAULT_PORT) {
                         'react-hot',
                         'babel?cacheDirectory=true'
                     ]
-                },
+                }
+            ],
+            loaders: [
+                ...webpackCommonConfig.module.loaders,
                 {
                     test: /\.(png|jpg|gif|svg)$/,
                     loader: 'url',

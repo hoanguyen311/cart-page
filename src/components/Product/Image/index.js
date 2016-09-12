@@ -1,7 +1,4 @@
 import { blockFactory } from 'rebem';
-
-import './styles.less';
-
 const Block = blockFactory('product-image');
 
 
