@@ -10,7 +10,7 @@ import App from '#App';
 
 const sagaMiddleWare = createSagaMiddleWare();
 
-let store = createStore(rootReducer, compose(
+let store = createStore(rootReducer, window.__PRELOADED_STATE__, compose(
     applyMiddleware(
         thunk,
         sagaMiddleWare

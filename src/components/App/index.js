@@ -21,15 +21,20 @@ class App extends Component {
     static propTypes = {
         loading: PropTypes.bool.isRequired,
         showWishlist: PropTypes.bool.isRequired,
-        handleShowWishlist: PropTypes.func.isRequired
+        handleShowWishlist: PropTypes.func.isRequired,
+        loadData: PropTypes.func
     }
     static defaultProps = {
         loading: false,
         showWishlist: false
     }
-    componentDidMount() {
-        this.props.loadData();
+
+    componentWillMount() {
+        const { loadData } = this.props;
+
+        loadData && loadData();
     }
+
     renderProducts() {
         return Block({
             elem: 'products'
@@ -76,4 +81,5 @@ class App extends Component {
         );
     }
 }
+
 export default App;

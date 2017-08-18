@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
@@ -5,22 +6,27 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpackCommonConfig from './common';
 
 const ROOT = path.resolve(__dirname, '../dist');
+let nodeModules = [];
+
+fs
+    .readdirSync('node_modules')
+    .filter(x => {
+        return ['.bin'].indexOf(x) === -1;
+    })
+    .forEach(mod => {
+        nodeModules[mod] = `commonjs ${mod}`;
+    });
 
 export default {
     ...webpackCommonConfig,
     output: {
         ...webpackCommonConfig.output,
-        path: path.join(ROOT, 'static'),
-        filename: '[name].js'
+        path: path.join(ROOT, 'server'),
+        filename: '[name].js',
+        libraryTarget: 'commonjs'
     },
     entry: {
-        vendor: [
-            'react',
-            'react-dom',
-            'rebem',
-            'superagent'
-        ],
-        app: [ ...webpackCommonConfig.entry, './src/index' ]
+        index: [ './src/server/index' ]
     },
     module: {
         ...webpackCommonConfig.module,
@@ -41,41 +47,17 @@ export default {
             ...webpackCommonConfig.module.loaders,
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'url',
-                query: {
-                    limit: 50000,
-                    name: 'images/[name]-[hash].[ext]'
-                }
-            },
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract(
-                    'style',
-                    'css?-minimize&sourceMap' +
-                    // TODO minimizing breaks source-maps in BOB
-                    // 'css?minimize&sourceMap' +
-                    '!postcss'
-                )
+                loader: 'null'
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract(
-                    'style',
-                    'css?-minimize&sourceMap' +
-                    // TODO minimizing breaks source-maps in BOB
-                    // 'css?minimize&sourceMap' +
-                    '!postcss' +
-                    '!less?sourceMap'
-                )
+                loader: 'null'
             }
         ]
     },
+    externals: [nodeModules, 'express', 'path'],
     plugins: [
         ...webpackCommonConfig.plugins,
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
-        new ExtractTextPlugin('app.css', {
-            allChunks: true
-        }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({

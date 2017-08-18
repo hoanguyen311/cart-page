@@ -45,17 +45,7 @@ export default {
                         path.resolve('src/')
                     ]
                 }
-            },
-            // {
-            //     test: /\.js$/,
-            //     exclude: [
-            //         path.resolve('node_modules/')
-            //     ],
-            //     loader: 'babel',
-            //     query: {
-            //         cacheDirectory: true
-            //     }
-            // }
+            }
         ],
         loaders: [
             {

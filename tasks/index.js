@@ -1,7 +1,7 @@
 import Start from 'start';
 import reporter from 'start-pretty-reporter';
 import files from 'start-files';
-import clean from 'start-clean';
+import startClean from 'start-clean';
 import * as webpack from 'start-webpack';
 import env from 'start-env';
 import path from 'path';
@@ -31,5 +31,24 @@ export function build() {
                 webpack.build(cfg)
             );
         })
+    );
+}
+
+export function buildServer() {
+    return start(
+        env('production', () => {
+            const cfg = require(root + '/webpack/server').default;
+
+            return start(
+                webpack.build(cfg)
+            );
+        })
+    );
+}
+
+export function clean() {
+    return start(
+        files(root + '/dist'),
+        startClean()
     );
 }
